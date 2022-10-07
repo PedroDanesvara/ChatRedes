@@ -8,6 +8,4 @@ while True:
     obj_socket.connect((servidor, porta))
     msg = bytes(input("Sua mensagem: ") + "1", 'utf-8')
     obj_socket.send(msg)
-    resposta = str(obj_socket.recv(1024))
-    print(f"Cliente {str(resposta)[-3:-2]}: ", str(resposta)[4:-3])
 obj_socket.close()
