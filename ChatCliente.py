@@ -11,8 +11,9 @@ def main():
         obj_socket.connect((servidor, porta))
     except :
         return print('Deu ruim')
+    username = input('Digite seu nome de usuário: ')
     thread1 = Thread(target = recvMsg, args = [obj_socket])
-    thread2 = Thread(target = sndMsg, args = [obj_socket])
+    thread2 = Thread(target = sndMsg, args = [obj_socket, username])
     thread1.start()
     thread2.start()
 
@@ -25,13 +26,12 @@ def recvMsg(con):
                 con.close()
                 break
 
-def sndMsg(con):
+def sndMsg(con, username):
         while True:
             try:
-                msg = input('Digite:   ')
-                con.send(f'{msg}'.encode('utf-8'))
+                msg = input('')
+                con.send(f'{username}: {msg}'.encode('utf-8'))
             except:
                 return
 
 main()
-

@@ -42,5 +42,3 @@ def mandClts(msg_recebida, con):
                 rmvClts(cltsItm)
 
 main()
-
-
